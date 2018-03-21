@@ -1,7 +1,7 @@
 node {    
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/sbuvaneshkumar/testing.git']]])
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'master']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/sbuvaneshkumar/testing.git']]])
     // run first script
-    load 'release/Jenkinsfile'
+    load 'master/release/Jenkinsfile'
     // run second script
-    load 'uptime/Jenkinsfile'
+    load 'master/uptime/Jenkinsfile'
 }
