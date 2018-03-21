@@ -1,0 +1,6 @@
+node {
+   stage('uptime') {
+     sh 'uptime'
+       }
+       }
+

@@ -1,0 +1,6 @@
+node {
+   stage('release') {
+     sh 'cat /etc/redhat-release'
+       }
+       }
+
