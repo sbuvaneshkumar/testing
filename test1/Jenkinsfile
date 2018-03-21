@@ -1,0 +1,5 @@
+node {
+  stage('test1') {
+  sh 'touch test1' 
+  }
+ }
