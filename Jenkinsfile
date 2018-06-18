@@ -4,7 +4,7 @@ pipeline {
 stage('print output') {
 	steps{
 		script{
-  sh (script: 'cat /var/log/dpkg.log', returnStdout: true).trim())
+  sh (script: 'cat /var/log/dpkg.log', returnStdout: true).trim()
 }
 }
 }
