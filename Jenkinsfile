@@ -1,10 +1,15 @@
-pipeline {
-	agent any 
-	stages{
-stage('Code Checkout') {
-                                repositoryURL = sh(script: 'git config remote.origin.url', returnStdout: true).trim()
-                                echo "${repositoryURL}"
-                                repositoryName = sh (script: "echo ${repositoryURL} | rev | cut -d '.' -f2 | cut -d '/' -f1 | rev ", returnStdout: true).trim()
-                                echo "${repositoryName}"
-            			}
-	}}
+node { 
+    git 'https://github.com/sbuvaneshkumar/testing.git'
+    def sub = ["uptime","release"]
+    def workspace = pwd()
+    println "current workspace : ${workspace}"
+    new File(workspace+"/uptime").list().each {
+        if( it.contains("Jenkinsfile")){
+            def jFilepath = workspace+"/uptime/" + it;
+            println jFilepath
+            
+            def jFile = load jFilepath
+ //           jFile.createWorkflow()
+        }
+    }
+}
