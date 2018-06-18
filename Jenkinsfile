@@ -8,4 +8,4 @@ stage('Code Checkout') {
                                 repositoryName = sh (script: "echo ${repositoryURL} | rev | cut -d '.' -f2 | cut -d '/' -f1 | rev ", returnStdout: true).trim()
                                 echo "${repositoryName}"
             			}
-	}
+	}}
